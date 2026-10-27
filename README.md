@@ -50,7 +50,7 @@ Total Social Engagement = SUM('spiderman_bnd_sentiment_main'[Likes])
 ## 🚀 How to Run the Project
 
 Clone this repository:
-git clone https://github.com/your-username/spiderman-bnd-sentiment-powerbi.git
+git clone https://github.com/indrajeetugi-web//Spiderman-brandnewday-sentimentanalysis.git
 
 
 Open Power BI Desktop.
