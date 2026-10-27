@@ -20,19 +20,6 @@ Platform Sentiment Split (100% Stacked Bar): Compares platform positivity rates 
 Executive Summary Cards & Platform Donut: High-level volume and sentiment health checks at a glance.
 
 ## 🗂️ Data Architecture
-The project implements a relational star schema with a bidirectional bridge pattern to handle multi-topic fan comments cleanly without data duplication:
-┌─────────────────────────────────┐               ┌─────────────────────────────────┐
-│  spiderman_bnd_sentiment_main   │ (1)       (*) │   spiderman_bnd_topics_bridge   │
-├─────────────────────────────────┤───────────────├─────────────────────────────────┤
-│ Post_ID (PK)                    │               │ Topic_ID (PK)                   │
-│ Date                            │               │ Post_ID (FK)                    │
-│ Platform                        │               │ Topic_Name                      │
-│ Campaign_Phase                  │               │ Topic_Sentiment                 │
-│ Raw_Comment                     │               │ Topic_Score                     │
-│ Likes                           │               └─────────────────────────────────┘
-│ Sentiment_Score                 │
-│ Sentiment_Label                 │
-└─────────────────────────────────┘
 Main Fact Table (spiderman_bnd_sentiment_main.csv): 1 row per social media post (1,500 rows).
 Topic Bridge Table (spiderman_bnd_topics_bridge.csv): 1 row per topic mentioned (1,722 rows), enabling drill-down across:
 Tom Holland & Acting (327 Pos / 26 Neg)
